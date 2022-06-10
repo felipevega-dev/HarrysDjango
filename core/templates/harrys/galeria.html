@@ -1,0 +1,55 @@
+{% extends 'harrys/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+    <div class="mx-5 p-2 mb-2">
+        <!--Catalogo de fotos-->
+        <main class="row justify-content-center pt-5 sec-portfolio-js">
+            <!--Colum #1-->
+            <div class="col-10 col-md-4">
+                <div class="row">
+                <!--PRIMERA IMAGEN-->
+                    <a href="" class="col-12 mb-3 portfolio-item" data-bs-toggle="modal" data-bs-target="#modal-portfolio">
+                    <img src="{% static 'core/' %}IMAGENES/camisa1.jpg" alt="Harry" class="w-100 img-btn-modal-js">
+                    </a>
+                <!--SEGUNDA IMAGEN-->
+                    <a href="" class="col-12 mb-3 portfolio-item" data-bs-toggle="modal" data-bs-target="#modal-portfolio">
+                    <img src="{% static 'core/' %}IMAGENES/poleronmodelo.jpg" alt="Poleron Shingeki" class="w-100 img-btn-modal-js">
+                    </a>
+                <!--TERCERA IMAGEN-->
+                    <a href="" class="col-12 mb-3 portfolio-item" data-bs-toggle="modal" data-bs-target="#modal-portfolio">
+                    <img src="{% static 'core/' %}IMAGENES/poleron2.jpg" alt="Poleron Goku" class="w-100 img-btn-modal-js">
+                    </a>
+                </div>
+            </div>
+            <!--Colum #2-->
+            <div class="col-10 col-md-8">
+                <div class="row">
+                    <h2 class="col-12 py-3 text-end display-4">
+                        GALERÍA DE FOTOS
+                    </h2>
+                    <!--PRIMERA IMAGEN-->
+                    <a href="" class="col-12 mb-3 portfolio-item" data-bs-toggle="modal" data-bs-target="#modal-portfolio">
+                        <img src="{% static 'core/' %}IMAGENES/perritomodelo1.jpg" alt="Harry" class="w-100 img-btn-modal-js">
+                        </a>
+                    <!--segunda IMAGEN-->
+                    <a href="" class="col-12 col-md-6 mb-3 portfolio-item" data-bs-toggle="modal" data-bs-target="#modal-portfolio">
+                        <img src="{% static 'core/' %}IMAGENES/bandana4.jpg" alt="Harry2" class="w-100 img-btn-modal-js">
+                        </a>
+                    <!--TERCERA IMAGEN-->
+                    <a href="" class="col-12 col-md-6 mb-3 portfolio-item" data-bs-toggle="modal" data-bs-target="#modal-portfolio">
+                        <img src="{% static 'core/' %}IMAGENES/bandana3.jpg" alt="Harry3" class="w-100 img-btn-modal-js">
+                    </a>
+                </div>
+            </div>
+            <!-- General modal-->
+            <div class="col-9 modal fade" id="modal-portfolio">
+                <div class="modal-dialog position-relative modal-dialog-centered">
+                    <img src="" alt="" class="w-100 img-modal-js"> 
+                </div>
+            </div>
+        </main>
+    </div>  
+
+    {% endblock %}
