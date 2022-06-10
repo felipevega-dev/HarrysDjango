@@ -1,0 +1,32 @@
+{% extends 'harrys/base.html' %}
+
+{% block contenido %}
+<h2> Listado de Productos <h2>
+  
+<table class="table table-striped">
+    <tr>
+        <th>Nombre</th>
+        <th>Duración</th>
+        <th>Año</th>
+        <th>Genero</th>
+        <th>Fecha Estreno</th>
+        <th>Sinopsis</th>
+    </tr>
+    {% for p in peliculas %}
+    <tr>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.duracion }}</td>
+        <td>{{ p.anio }}</td>
+        <td>{{ p.genero }}</td>
+        <td>{{ p.fecha_estreno }}</td>
+        <td>{{ p.sinopsis }}</td>
+    
+        <td>
+            <a href ="{% url 'modificar_peliculas' p.id %}">Modificar</a>
+            <a href ="{% url 'eliminar_peliculas' p.id %}">Eliminar</a>
+        </td>
+    
+    </tr>  
+    {%endfor%}  
+</table>
+{% endblock %}
