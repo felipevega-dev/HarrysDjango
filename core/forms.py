@@ -8,10 +8,10 @@ from django.contrib.auth.models import User
 class ProductosForm(ModelForm):
     
     nombre = forms.CharField(min_length=2,max_length=200)
-    duracion = forms.IntegerField(min_value=5,max_value=500)
+    valor = forms.IntegerField(min_value=5000,max_value=15000)
     class Meta:
         model = Producto
-        fields = ['nombre','valor','anio','categoria']
+        fields = ['nombre','valor','anio','categoria','fecha_publicacion']
         
         widgets = {
             'fecha_publicacion':forms.SelectDateWidget(years=range(1900,2022))

@@ -26,7 +26,7 @@ def listado_productos(request):
     data={
         'productos':productos
     }
-    return render(request,'harrys/listado_productos.html')
+    return render(request,'harrys/listado_productos.html',data)
 
 @permission_required('core.add_producto')
 def nuevo_producto(request):

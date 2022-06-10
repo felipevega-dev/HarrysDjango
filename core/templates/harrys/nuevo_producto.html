@@ -2,17 +2,21 @@
 
 {% block contenido %}
 
-<h2>Nuevao producto</h2>
+<div class="container">
+    <br>
+    <h2>Nuevo producto</h2>
+    <br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <br>
+        <input type="reset" value="Limpiar">
+        <input type="submit" value="Guardar">
 
-<form action="" method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="reset" value="Limpiar">
-    <input type="submit" value="Guardar">
-
-</form>   
+    </form>   
+</div>
 
 {{ mensaje }}
 

@@ -6,27 +6,26 @@
 <table class="table table-striped">
     <tr>
         <th>Nombre</th>
-        <th>Duración</th>
-        <th>Año</th>
-        <th>Genero</th>
-        <th>Fecha Estreno</th>
-        <th>Sinopsis</th>
+        <th>Valor</th>
+        <th>Categoria</th>
+        <th>Fecha</th>
+        <th>Descripción</th>
+        <th>Accion</th>
     </tr>
-    {% for p in peliculas %}
-    <tr>
-        <td>{{ p.nombre }}</td>
-        <td>{{ p.duracion }}</td>
-        <td>{{ p.anio }}</td>
-        <td>{{ p.genero }}</td>
-        <td>{{ p.fecha_estreno }}</td>
-        <td>{{ p.sinopsis }}</td>
-    
-        <td>
-            <a href ="{% url 'modificar_peliculas' p.id %}">Modificar</a>
-            <a href ="{% url 'eliminar_peliculas' p.id %}">Eliminar</a>
-        </td>
-    
-    </tr>  
+    {% for p in productos%}
+    <div class="container">
+        <tr>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.valor }}</td>
+            <td>{{ p.categoria }}</td>
+            <td>{{ p.fecha_publicacion }}</td>
+            <td>{{ p.descripcion }}</td>
+            <td>
+                <a href ="{% url 'modificar_producto' p.id %}">Modificar</a>
+                <a href ="{% url 'eliminar_producto' p.id %}">Eliminar</a>
+            </td>
+        </tr>  
+    </div>
     {%endfor%}  
 </table>
 {% endblock %}
