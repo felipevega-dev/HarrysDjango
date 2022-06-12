@@ -84,7 +84,7 @@ def registro_usuario(request):
             login(request, user)
             return redirect(to='home')
         
-    return render(request,"registration/registrar.html",data)
+    return render(request,"registration/registro.html",data)
 
 class ProductoViewSet(viewsets.ModelViewSet):
     queryset = Producto.objects.all()

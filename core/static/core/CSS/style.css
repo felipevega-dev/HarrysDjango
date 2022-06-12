@@ -13,6 +13,11 @@ h1{
     color: gold;
 }
 
+.texto-borde {
+    -webkit-text-stroke: 2px black;
+    color: transparent;
+  }
+  
 /* NAVBAR */
 .navbar-brand > img {
     width: 84px;
