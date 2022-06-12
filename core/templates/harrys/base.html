@@ -47,17 +47,13 @@
                 <a href="{% url 'listado_productos' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Lista de Productos</a>
                 </div>
                 <div class="nav text-white fw-bold ">
-                      <a href="{% url 'logout' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Salir</a>
+                      <a href="{% url 'logout'%}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Salir</a>
                 </div>
                 
-                <button class="btn text-white fw-bold navlogin dropdown-toggle" type="button" data-toggle="dropdown">
+                <button class="btn text-white fw-bold navlogin text-capitalize" type="button" data-toggle="dropdown">
                   {{ user.username}}
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">HTML</a></li>
-                  <li><a href="#">CSS</a></li>
-                  <li><a href="#">JavaScript</a></li>
-                </ul>
+                </button>
+              
               
                 {% else %}
                 <div class="nav text-white fw-bold ">
