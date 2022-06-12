@@ -20,9 +20,5 @@ urlpatterns = [
     path('eliminar_producto/<id>/', eliminar_producto, name="eliminar_producto"),
     path('registro/', registro_usuario, name="registro_usuario"),
     path('tienda/', tienda, name="tienda"),
-    path('agregar/<int:producto_id>/', agregar_producto, name="Add"),
-    path('eliminar/<int:producto_id>/', eliminar_producto, name="Del"),
-    path('restar/<int:producto_id>/', restar_producto, name="Sub"),
-    path('limpiar/', limpiar_carrito, name="CLS"),
     path('api/',include(router.urls)),
 ]
