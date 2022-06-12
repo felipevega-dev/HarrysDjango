@@ -18,8 +18,8 @@
                             <div class="card" style="height:12rem; width:23rem; margin: 5px 0px;">
                                 <div class="card-body">
                                     <h5 class="card-tittle">{{producto.nombre}}</h5>
-                                    <p class="card-text">{{producto.categoria}}</p> 
-                                    <p class="card-text">{{producto.valor}}</p>
+                                    <p class="card-text">Categoria: {{producto.categoria}}</p> 
+                                    <p class="card-text">${{producto.valor}}</p>
 
                                     <a href="{%url 'Add' producto.id %}" class="btn btn-warning">Agregar al carrito</a>
                                 </div>

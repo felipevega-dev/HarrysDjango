@@ -15,7 +15,7 @@
       {% for key, value in request.session.carrito.items %}
         <tr>
           <th scope="col">{{value.nombre}}</td>
-          <td class="float-left">{{value.acumulado}}</td>
+          <td class="float-left">${{value.acumulado}}</td>
           <td>
             <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark bg-danger text-white ">-</a>
             <a href="{% url 'Add' value.producto_id %}" class="badge btn btn-dark bg-success text-white ">+</a>
@@ -39,6 +39,8 @@
     <hr>
     </div>
     <div class="row text-center">
-        <div class="col-6"><a href="{% url 'CLS' %}" class="btn btn-danger text-white">Limpiar</a></div>
+        <div class="col-6"><a href="{% url 'CLS' %}" class="btn btn-danger text-white">Limpiar</a><br>↑
+            <div class="text-danger">Presionar antes de agregar productos por primera vez!</div>
+        </div>
         <div class="col-6"><a href="#" class="btn btn-success text-white">Comprar</a></div>
     </div>
