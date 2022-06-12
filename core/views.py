@@ -95,9 +95,9 @@ def tienda(request):
 
 def agregar_producto(request, producto_id):
     carrito = Carrito(request)
-    producto = Producto.objects.get(id=producto_id) 
+    producto = Producto.objects.get(id=producto_id)
     carrito.agregar(producto)
-    return redirect("tienda")  
+    return redirect("tienda") 
 
 def eliminar_producto(request, producto_id):
     carrito = Carrito(request)

@@ -15,8 +15,7 @@
       {% for key, value in request.session.carrito.items %}
         <tr>
           <th scope="col">{{value.nombre}}</td>
-          <td class="float-left">
-              {{value.acumulado}}
+          <td class="float-left">{{value.acumulado}}
           </td>
           <td>
             <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark bg-danger text-white ">-</a>
