@@ -1,4 +1,5 @@
-from django.shortcuts import redirect,render
+from django.shortcuts import redirect,render , HttpResponse
+from core.carrito import Carrito
 from core.forms import CustomUserForm, ProductosForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
@@ -86,6 +87,37 @@ def registro_usuario(request):
         
     return render(request,"registration/registro.html",data)
 
+#TIENDA
+
+def tienda(request):
+    productos = Producto.objects.all()
+    return render(request,'harrys/tienda.html', {'productos':productos})
+
+def agregar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id) 
+    carrito.agregar(producto)
+    return redirect("tienda")  
+
+def eliminar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id) 
+    carrito.eliminar(producto)
+    return redirect("tienda")  
+
+def restar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id) 
+    carrito.restar(producto)
+    return redirect("tienda") 
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("tienda")  
+
+
 class ProductoViewSet(viewsets.ModelViewSet):
     queryset = Producto.objects.all()
     serializer_class = ProductosSerializer
+
