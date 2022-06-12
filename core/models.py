@@ -20,5 +20,5 @@ class Producto(models.Model):
     fecha_publicacion = models.DateField()
 
     def __str__(self):
-        return f'{self.nombre} -> {self.precio}'
+        return f'{self.nombre} -> {self.valor}'
 
