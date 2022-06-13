@@ -14,10 +14,6 @@
         background: #ffe259;
         background: linear-gradient(to right, #ffa751, #ffe259);
     }
-    .bg {
-        background-image: url(IMAGENES/banner1.jpg);
-        background-position: center center;
-    }
 
     .cy {
         color: #f5d848;
@@ -26,7 +22,7 @@
     .cn {
         color:#ffa751;
     }
-</style>
+    </style>
 </head>
 <body>
    {% load static %}
@@ -34,7 +30,9 @@
       <div class="row align-items-stretch">
           <div class="col bg-white p-5 m-3 py-4 rounded-end">
               <div class="text-center">
+                   <a href="{% url 'home' %}">
                   <img src="{% static 'core/' %}IMAGENES/logblanco.png" width="200" alt="">
+                   </a>
               </div>
                 <!-- LOGIN -->
 

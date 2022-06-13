@@ -67,7 +67,7 @@
     transform: scale(1.10);
     transition: 1s filter;
     transition-delay: 1s;
-    color: #f98837;
+    color: #f9e537;
 }
 
 .navlogin{
@@ -76,7 +76,7 @@
     overflow: hidden;
     transition: all ease-out 0.2s;
     transition: 0.5s filter;
-    background: #342c61; 
+    background: #f9e537;; 
     color: #f98837;  
 }
 

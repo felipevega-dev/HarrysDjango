@@ -5,21 +5,32 @@
 {% block contenido %}
 
 {% load crispy_forms_tags %}
-<div class="container">
-    <br>
-    <h2>Contactanos!</h2>
-    <form action="" class="formulario_contacto" method="post">
+<div class="container border">
+    <div class="row">
+        <div class="div.col-12.col-md-6.offset-md-3">
+            <h2 class="text-center">Contactanos!</h2>
+    <form action="" method="post">
 
     {% csrf_token %}   
 
     {{ form | crispy }}
 
     <br>
-    <button type="submit" class="button">Enviar</button>
+    <div class="d-flex justify-content-end">
+    <input type="reset" value="Cancelar" class="btn btn-secondary">
+    &nbsp;
+    <button type="submit" id="btnEnviar"class="btn btn-primary">Enviar</button>
+    </div>
+
+
     </form>
-    
+    <br>
     {{mensaje}}
 
+        </div>
+    </div>
+
 </div>
+
 
 {% endblock %}
