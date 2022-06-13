@@ -19,15 +19,15 @@
 </head>
 <body class="bg-light">
     <!--Navbar-->
-    <nav class="navbar navbar-expand-md bg-black navbar-expand">
+    <nav class="navbar navbar-expand-md navbar-expand">
       <div class="container-fluid">
         <!--Branding-->
         <a  href="{% url 'home' %}">
-          <img src="{% static 'core/'%}IMAGENES/logo.jpg" class="ms-1 "alt="Harrys" width="115px" height="90px">
+          <img src="{% static 'core/'%}IMAGENES/logblanco.png" class="ms-1 "alt="Harrys" width="115px" height="90px">
         </a>    
         <!--Items-->
         <div class="collapse navbar-collapse">
-          <div class="navtitle m-2 fw-bold" >
+          <div class="navtitle m-3 fw-bold" >
             <a href="{% url 'home' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">Inicio</a>
           </div>
           <div class="navtitle m-2 fw-bold" >
@@ -59,6 +59,7 @@
                 <div class="ms-auto btn fw-bold navlogin text-uppercase">
                     <a href="{%url 'login' %}" class="text-decoration-none col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Iniciar Sesión</a>
                 </div> 
+                
                 <div class="btn m-1 fw-bold navlogin text-uppercase">
                     <a href="{%url 'registro_usuario' %}" class=" text-decoration-none col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Registrarse</a>
                 </div>
