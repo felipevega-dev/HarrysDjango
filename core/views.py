@@ -1,6 +1,6 @@
 from django.shortcuts import redirect,render , HttpResponse
 from core.carrito import Carrito
-from core.forms import CustomUserForm, ProductosForm
+from core.forms import CustomUserForm, ProductosForm , ContactoForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
 from core.models import Producto
@@ -20,7 +20,19 @@ def galeria(request):
     return render(request,'harrys/galeria.html')
 
 def contacto(request):
-    return render(request,'harrys/contacto.html')
+    data = {
+        'form': ContactoForm()
+    }
+
+    if request.method == 'POST':
+        formulario = ContactoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "contacto guardado"
+        else:
+            data["form"] = formulario
+            
+    return render(request,'harrys/contacto.html', data)
 
 def listado_productos(request):
     productos = Producto.objects.all()
@@ -45,8 +57,8 @@ def nuevo_producto(request):
     return render(request,'harrys/nuevo_producto.html',data)
 
 @login_required
-def modificar_producto(request):
-    producto = ProductosForm.objects.get(id=id)
+def modificar_producto(request,id):
+    producto = Producto.objects.get(id=id)
     data = {
         'form':ProductosForm(instance=producto)
     }
@@ -56,16 +68,16 @@ def modificar_producto(request):
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = "Producto Modificado Correctamente"
-        data['form'] = formulario 
+            data['form'] = formulario 
           
-    return render(request,'harrys/modificar_producto.html', data)
+    return render(request,'harrys/modificar_productos.html', data)
 
-def eliminar_producto(request):
+def eliminar_producto(request,id):
     producto = Producto.objects.get(id=id)
     producto.delete()
     
     # from django.shortcuts import render, redirect    
-    return render(request,'harrys/nuevo_producto.html')
+    return render(request,'harrys/listado_productos.html')
 
 def registro_usuario(request):
     data = {
@@ -99,7 +111,7 @@ def agregar_producto(request, producto_id):
     carrito.agregar(producto)
     return redirect("tienda") 
 
-def eliminar_producto(request, producto_id):
+def eliminar_producto_car(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id) 
     carrito.eliminar(producto)

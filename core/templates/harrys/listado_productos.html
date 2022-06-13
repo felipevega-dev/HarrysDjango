@@ -1,31 +1,33 @@
 {% extends 'harrys/base.html' %}
 
 {% block contenido %}
-<h2> Listado de Productos <h2>
+<br>
+<div class="container m-6">
+
+<div class="col-12 align-self-centerr"><h2 class="display-1">PRODUCTOS</h2></div>
   
-<table class="table table-striped">
-    <tr>
-        <th>Nombre</th>
-        <th>Valor</th>
-        <th>Categoria</th>
-        <th>Fecha</th>
-        <th>Descripción</th>
-        <th>Accion</th>
-    </tr>
-    {% for p in productos%}
-    <div class="container">
+    <table class="table table-striped table-bordered">
         <tr>
-            <td>{{ p.nombre }}</td>
-            <td>{{ p.valor }}</td>
-            <td>{{ p.categoria }}</td>
-            <td>{{ p.fecha_publicacion }}</td>
-            <td>{{ p.descripcion }}</td>
-            <td>
-                <a href ="{% url 'modificar_producto' p.id %}">Modificar</a>
-                <a href ="{% url 'eliminar_producto' p.id %}">Eliminar</a>
-            </td>
-        </tr>  
-    </div>
-    {%endfor%}  
-</table>
+            <th>Nombre</th>
+            <th>Valor</th>
+            <th>Categoria</th>
+            <th>Descripción</th>
+            <th>Accion</th>
+        </tr>
+        {% for p in productos%}
+        <div class="container">
+            <tr>
+                <td>{{ p.nombre }}</td>
+                <td>${{ p.valor }}</td>
+                <td>{{ p.categoria }}</td>
+                <td>{{ p.descripcion }}</td>
+                <td>
+                    <a href ="{% url 'modificar_producto' p.id %}">Modificar</a>
+                    <a href ="{% url 'eliminar_producto' p.id %}">Eliminar</a>
+                </td>
+            </tr>  
+        </div>
+        {%endfor%}  
+    </table>
+</div>
 {% endblock %}

@@ -1,21 +1,25 @@
 {% extends 'harrys/base.html' %}
 
 {% block contenido %}
-
-<h2>Modificar Productos</h2>
-
-<form action="" method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-
-    <input type="reset" value="Limpiar">
-    <input type="submit" value="Modificar">
-
-</form>   
-
-{{ mensaje }}
-
-
+<br>
+<div class="container m-6">
+    <div class="col-12 align-self-center"><h4 class="display-3">MODIFICAR PRODUCTO</h4></div>
+  
+    <br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <br>
+        <input type="reset" value="Limpiar">
+        <input type="submit" value="Modificar">
+    </form> 
+    <br>  
+    <div>
+    <a href="{% url 'listado_productos' %}">Volver a la lista de productos</a>
+    </div>
+    <br>
+    {{ mensaje }}
+</div>
 {% endblock %}

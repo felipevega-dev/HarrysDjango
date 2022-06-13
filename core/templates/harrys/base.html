@@ -19,48 +19,48 @@
 </head>
 <body class="bg-light">
     <!--Navbar-->
-    <nav class="navbar navbar-expand-md navbar-light bg-black navbar-expand">
+    <nav class="navbar navbar-expand-md bg-black navbar-expand">
       <div class="container-fluid">
         <!--Branding-->
-        <a  href="{% url 'home' %}" class="navbar-brand">
-          <img src="{% static 'core/'%}IMAGENES/logo.jpg" alt="Harrys">
+        <a  href="{% url 'home' %}">
+          <img src="{% static 'core/'%}IMAGENES/logo.jpg" class="ms-1 "alt="Harrys" width="115px" height="90px">
         </a>    
         <!--Items-->
-        <div class="collapse navbar-collapse" id="mainNav">
-          <div class="nav ms-auto text-white fw-bold" >
+        <div class="collapse navbar-collapse">
+          <div class="navtitle m-2 fw-bold" >
             <a href="{% url 'home' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">Inicio</a>
           </div>
-          <div class="nav ms-auto text-white fw-bold" >
+          <div class="navtitle m-2 fw-bold" >
             <a href="{% url 'tienda' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">Tienda</a>
           </div>
-          <div class="nav ms-auto text-white fw-bold">
+          <div class="navtitle m-2 fw-bold">
             <a href="{% url 'galeria' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Galeria</a>
           </div>
-          <div class="nav text-white fw-bold ">
-            <a href="{% url 'contacto' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">Conocenos</a>
+          <div class="navtitle m-2 fw-bold ">
+            <a href="{% url 'contacto' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">Contactanos</a>
           </div>
           {% if user.is_authenticated %}
-                <div class="nav text-white fw-bold ">
+                <div class="ms-auto navtitle fw-bold">
                       <a href="{% url 'nuevo_producto' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Nuevo Producto</a>
                 </div>
-                <div class="nav text-white fw-bold ">
+                <div class=" navtitle fw-bold ">
                 <a href="{% url 'listado_productos' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Lista de Productos</a>
                 </div>
-                <div class="nav text-white fw-bold ">
-                      <a href="{% url 'logout'%}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Salir</a>
+
+                <div class="m-1 btn navsalir fw-bold">
+                      <a href="{% url 'logout'%}" class="text-decoration-none navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Salir</a>
                 </div>
-                
-                <button class="btn text-white fw-bold navlogin text-capitalize" type="button" data-toggle="dropdown">
+                <button class="m-1 btn fw-bold navlogin text-uppercase" type="button">
                   {{ user.username}}
                 </button>
               
               
                 {% else %}
-                <div class="nav text-white fw-bold ">
-                    <a href="{%url 'login' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Iniciar Sesión</a>
+                <div class="ms-auto btn fw-bold navlogin text-uppercase">
+                    <a href="{%url 'login' %}" class="text-decoration-none col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Iniciar Sesión</a>
                 </div> 
-                <div class="nav text-white fw-bold ">
-                    <a href="{%url 'registro_usuario' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Registrarse</a>
+                <div class="btn m-1 fw-bold navlogin text-uppercase">
+                    <a href="{%url 'registro_usuario' %}" class=" text-decoration-none col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Registrarse</a>
                 </div>
                 {% endif %}
         </div> 
