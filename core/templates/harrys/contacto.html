@@ -5,32 +5,32 @@
 {% block contenido %}
 
 {% load crispy_forms_tags %}
-<div class="container border">
-    <div class="row">
-        <div class="div.col-12.col-md-6.offset-md-3">
-            <h2 class="text-center">Contactanos!</h2>
-    <form action="" method="post">
-
-    {% csrf_token %}   
-
-    {{ form | crispy }}
-
+<div class="bg-success bg-gradient">
     <br>
-    <div class="d-flex justify-content-end">
-    <input type="reset" value="Cancelar" class="btn btn-secondary">
-    &nbsp;
-    <button type="submit" id="btnEnviar"class="btn btn-primary">Enviar</button>
-    </div>
-
-
-    </form>
-    <br>
-    {{mensaje}}
-
+    <div class="container ">
+        <div class="row ">
+            <div class="div.col-12.col-md-6.offset-md-3 ">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center">¿Tienes algún Reclamo, Mensaje o Sugerencia?</h2>
+                        <h5 class="text-muted text-center">Nuestro equipo se contactará via correo electronico lo más pronto posible</h5>
+                        <form action="" method="post">
+                        {% csrf_token %}   
+                        {{ form | crispy }}
+                        &nbsp;
+                        <div class="d-flex justify-content-end">
+                            <input type="reset" value="Cancelar" class="btn btn-secondary">
+                            &nbsp;
+                            <button type="submit" id="btnEnviar"class="btn btn-primary">Enviar</button>
+                        </div>
+                        </form>
+                        <br>
+                        {{mensaje}}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
+    <br>
 </div>
-
-
 {% endblock %}

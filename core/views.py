@@ -48,11 +48,12 @@ def nuevo_producto(request):
     }
     
     if request.method == 'POST':
-        formulario = ProductosForm(request.POST)
+        formulario = ProductosForm(request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Guardado Correctamente"
-        data['form'] = formulario
+            data['mensaje'] = "Producto Almacenado Correctamente"
+        else:   
+            data['form'] = formulario
         
     return render(request,'harrys/nuevo_producto.html',data)
 

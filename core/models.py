@@ -1,7 +1,6 @@
 from secrets import choice
 from django.db import models
 from django.db.models.deletion import CASCADE
-from django.forms import DateField
 
 # Create your models here.
 
@@ -14,10 +13,11 @@ class Categoria(models.Model):
     
 class Producto(models.Model):
     nombre = models.CharField(max_length=200)
-    valor = models.IntegerField(default=5000)
+    valor = models.IntegerField()
     anio = models.IntegerField()
     categoria = models.ForeignKey(Categoria, on_delete=CASCADE)
     descripcion = models.TextField(null=True, blank=True)  
+    stock = models.IntegerField(default=5)
     imagen = models.ImageField(upload_to="productos", null=True)
 
     def __str__(self):
@@ -35,7 +35,6 @@ class Contacto(models.Model):
     correo = models.EmailField()
     tipo_consulta = models.IntegerField(choices=opciones_consultas)
     mensaje = models.TextField()
-    avisos = models.BooleanField()
 
     def __str__(self):
         return self.nombre
