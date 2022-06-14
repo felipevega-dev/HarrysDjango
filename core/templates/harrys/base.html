@@ -23,7 +23,7 @@
       <div class="container-fluid">
         <!--Branding-->
         <a  href="{% url 'home' %}">
-          <img src="{% static 'core/'%}IMAGENES/logblanco.png" class="ms-1 "alt="Harrys" width="115px" height="90px">
+          <img src="{% static 'core/'%}IMAGENES/logblanco.png" class="imgzoom ms-1 "alt="Harrys" width="115px" height="90px">
         </a>    
         <!--Items-->
         <div class="collapse navbar-collapse">
@@ -54,15 +54,14 @@
                   {{ user.username}}
                 </button>
               
-              
                 {% else %}
-                <div class="ms-auto btn fw-bold navlogin text-uppercase">
-                    <a href="{%url 'login' %}" class="text-decoration-none col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Iniciar Sesión</a>
-                </div> 
+                <button class="ms-auto btn fw-bold navlogin text-uppercase" type="button">
+                    <a href="{%url 'login' %}" class="text-warning text-decoration-none col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Iniciar Sesión</a>
+                </button>
                 &nbsp;
-                <div class="btn m-1 navlogin fw-bold text-uppercase">
-                    <a href="{%url 'registro_usuario' %}" class="text-decoration-none col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Registrarse</a>
-                </div>
+                <button class="m-1 btn fw-bold navlogin text-uppercase" type="button">
+                  <a href="{%url 'registro_usuario' %}" class="text-warning text-decoration-none col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Registrarse</a>
+                </button>
                 {% endif %}
         </div> 
       </div>

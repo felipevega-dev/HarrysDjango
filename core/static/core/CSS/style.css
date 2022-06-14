@@ -41,6 +41,9 @@
     filter: opacity(0.9);
 }
 
+.imgzoom {
+    transition: 0.4s transform;
+}
 
 /*card*/
 
@@ -71,13 +74,10 @@
 }
 
 .navlogin{
-    border: solid 1px #1d1d1c;
-    border-radius: 15px;
     overflow: hidden;
     transition: all ease-out 0.2s;
     transition: 0.5s filter;
     background: #f9e537;; 
-    color: #f98837;  
 }
 
 .navlogin:hover{
