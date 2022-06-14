@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
 from core.models import Producto
+from django.core.paginator import Paginator
+from django.http import Http404
 
 #REST
 from rest_framework import viewsets
@@ -38,9 +40,19 @@ def contacto(request):
 
 def listado_productos(request):
     productos = Producto.objects.all()
+    page = request.GET.get('page', 1)
+
+    try: 
+        paginator = Paginator(productos,5)
+        productos = paginator.page(page)
+    except:
+        raise Http404
+
     data={
-        'productos':productos
+        'entity':productos,
+        'paginator': paginator
     }
+
     return render(request,'harrys/listado_productos.html',data)
 
 @permission_required('core.add_producto')
