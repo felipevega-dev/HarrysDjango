@@ -22,7 +22,7 @@ class ProductosForm(ModelForm):
 class CustomUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['first_name','last_name','email','username','password1','password2']
+        fields = ['email','username','password1','password2']
 
 
 class ContactoForm(forms.ModelForm):

@@ -19,7 +19,7 @@
 </head>
 <body class="bg-light">
     <!--Navbar-->
-    <nav class="navbar navbar-expand-md navbar-expand">
+    <nav class="navbar navbar-expand-md bg-white navbar-expand">
       <div class="container-fluid">
         <!--Branding-->    
         <!--Items-->
@@ -53,16 +53,16 @@
                       <a href="{% url 'logout'%}" class="text-decoration-none navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center d-none d-lg-block col-xl-5 ">Salir</a>
                 </div>
                 <button class="m-1 btn fw-bold navlogin text-uppercase" type="button">
-                  {{ user.username}}
+                  @{{ user.username}}
                 </button>
               
                 {% else %}
-                <button class="ms-auto fw-bold " type="button">
-                    <a href="{%url 'login' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Iniciar Sesión</a>
+                <button class="ms-auto btn btn-warning fw-bold text-uppercase " type="button">
+                    <a href="{%url 'login' %}" class=" text-danger text-decoration-none col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Iniciar Sesión</a>
                 </button>
                 &nbsp;
-                <button class="fw-bold " type="button">
-                  <a href="{%url 'registro_usuario' %}" class="nav-link navtitle col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Registrarse</a>
+                <button class="btn fw-bold btn btn-warning text-uppercase" type="button">
+                  <a href="{%url 'registro_usuario' %}" class=" text-danger text-decoration-none col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xl-5 ">Registrarse</a>
                 </button>
                 {% endif %}
         </div> 

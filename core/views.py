@@ -109,10 +109,9 @@ def registro_usuario(request):
             # debemos importar
             # from django.contrib.auth import login, authenticate
             # obtener la data del formulario
-            username = formulario.cleaned_data['username']
-            password = formulario.cleaned_data['password1']
-            user = authenticate(username=username, password= password)
+            user = authenticate(username=formulario.cleaned_data["username"], password= formulario.cleaned_data["password1"])
             login(request, user)
+            messages.success(request, "Te has registrado correctamente")
             return redirect(to='home')
         
     return render(request,"registration/registro.html",data)
