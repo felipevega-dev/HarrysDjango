@@ -1,14 +1,35 @@
 {% extends 'harrys/base.html' %}
 
+{% block js %}
+<script>
+    function eliminarProducto(id){
+        Swal.fire({
+            "title":"¿Seguro quieres eliminar este Producto?",
+            "text": "Esta Acción no se puede deshacer",
+            "icon": "question",
+            "showCancelButton": true,
+            "cancelButtonText":"No, Cancelar",
+            "confirmButtonText": "Sí, Eliminar",
+            "reverseButtons": true,
+            "confirmButtonColor": "#dc3545"
+        })
+        .then(function(result){
+            if (result.isConfirmed) {
+                window.location.href = "/eliminar_producto/" +id+"/"
+            }
+        })
+    }
+</script>
+
+{% endblock %}
 
 {% block contenido %}
-
 <br>
-<div class="container m-6">
+<div class="card container m-6 ">
 
-<div class="col-12 align-self-center"><h2 class="display-1">PRODUCTOS</h2></div>
+<div class="card-body col-12 align-self-center"><h2 class="display-2 text-center">PRODUCTOS</h2></div>
   
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-hover table-responsive-sm table-bordered">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -23,14 +44,16 @@
         <div class="container">
             <tr>
                 <td>{{ p.id }}</td>
-                <td>{{ p.nombre }}</td>
+                <td>{{ p.nombre | title }}</td>
                 <td>${{p.valor }}</td>
-                <td>{{ p.categoria }}</td>
-                <td>{{ p.descripcion }}</td>
+                <td>{{ p.categoria | title}}</td>
+                <td>{{ p.descripcion | title}}</td>
                 <td>{{ p.stock }}</td>
                 <td>
+                    <div class="text-center">
                     <a href ="{% url 'modificar_producto' p.id %}" class="btn btn-info btn-sm">Modificar</a>
-                    <a href ="{% url 'eliminar_producto' p.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a href ="#" onclick="eliminarProducto({{ p.id }})" class="btn btn-danger btn-sm">Eliminar</a>
+                    </div>
                 </td>
             </tr>  
         </div>

@@ -1,6 +1,8 @@
-from django.shortcuts import redirect,render , HttpResponse
+from time import time
+from django.shortcuts import redirect,render , get_object_or_404
 from core.carrito import Carrito
 from core.forms import CustomUserForm, ProductosForm , ContactoForm
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
 from core.models import Producto
@@ -51,7 +53,8 @@ def nuevo_producto(request):
         formulario = ProductosForm(request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Producto Almacenado Correctamente"
+            messages.success(request, "Producto Agregado Correctamente")
+            return redirect(to="listado_productos")
         else:   
             data['form'] = formulario
         
@@ -59,26 +62,28 @@ def nuevo_producto(request):
 
 @login_required
 def modificar_producto(request,id):
-    producto = Producto.objects.get(id=id)
+    producto = get_object_or_404(Producto,id=id)
     data = {
         'form':ProductosForm(instance=producto)
     }
     
     if request.method == 'POST':
-        formulario = ProductosForm(data=request.POST, instance=producto)
+        formulario = ProductosForm(data=request.POST, instance=producto, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Producto Modificado Correctamente"
-            data['form'] = formulario 
+            messages.success(request, "Producto Modificado Correctamente")
+            return redirect(to="listado_productos")
+        data['form'] = formulario 
           
     return render(request,'harrys/modificar_productos.html', data)
 
 def eliminar_producto(request,id):
-    producto = Producto.objects.get(id=id)
+    producto = get_object_or_404(Producto,id=id)
     producto.delete()
+    messages.success(request, "Producto Eliminado Correctamente")
+    return redirect(to="listado_productos")
     
     # from django.shortcuts import render, redirect    
-    return render(request,'harrys/listado_productos.html')
 
 def registro_usuario(request):
     data = {
