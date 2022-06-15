@@ -19,7 +19,7 @@
 </head>
 <body class="bg-light">
     <!--Navbar-->
-    <nav class="navbar navbar-expand-md navbar-light bg-light border-3 border-bottom border-warning">
+    <nav class="navbar navbar-expand-xl navbar-light bg-light border-3 border-bottom border-warning">
       <div class="container-fluid">  
         <div>
           <a href="{% url 'home' %}" class="navbar-brand">
@@ -29,16 +29,16 @@
         <!--Items-->
         <div id="MenuNavegacion" class="collapse navbar-collapse">
           <ul class="m-1 ms-auto fw-bold" >
-            <li class="navtitulos"><a href="{% url 'home' %}" class="navtitulos nav-link text-center">Inicio</a></li>
+            <li><a href="{% url 'home' %}" class="navtitulos nav-link text-center">Inicio</a></li>
           </ul>
           <ul class="m-1 fw-bold" >
-            <li class="navtitulos"><a href="{% url 'tienda' %}" class="nav-link navtitulos text-center">Tienda</a></li>
+            <li><a href="{% url 'tienda' %}" class="nav-link navtitulos text-center">Tienda</a></li>
           </ul>
           <ul class="m-1 fw-bold ">
-            <li class="navtitulos"><a href="{% url 'galeria' %}" class="nav-link navtitulos text-center">Galeria</a></li>
+            <li><a href="{% url 'galeria' %}" class="nav-link navtitulos text-center">Galeria</a></li>
           </ul>
           <ul  class="m-1 fw-bold ">
-            <li class="navtitulos"><a href="{% url 'contacto' %}" class="nav-link navtitulostext-center">Contactanos</a></li>
+            <li><a href="{% url 'contacto' %}" class="nav-link navtitulos text-center">Contactanos</a></li>
           </ul>
         </div> 
  
@@ -79,12 +79,12 @@
 
     {% block contenido %}
 
-    {% endblock %}
+    {% endblock %} 
     <!-- Optional JavaScript; choose one of the two! -->
     <footer class="bg-black p-2">
       <div class="text-center"><img src="{% static 'core/'%}IMAGENES/logo.jpg" class="align-content-center"alt="Harrys" width="200px" height="180px"></div>
       <div class="text-center text-warning fw-bold">® HB TODOS LOS DERECHOS RESERVADOS ®</div>
-    </footer>
+    </footer>  
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="{% static 'core/'%}JS/main.js"></script>
