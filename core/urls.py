@@ -1,13 +1,11 @@
-from django.db import router
-from django.urls import path
-from django.urls.conf import include
-from core.views import base, eliminar_producto, galeria, home, listado_productos, modificar_producto, nuevo_producto, contacto, registro_usuario
-
-from .views import ProductoViewSet, agregar_producto, limpiar_carrito, restar_producto, tienda
+from django.urls import path, include
+from core.views import base, eliminar_producto, galeria, home, listado_productos, modificar_producto, nuevo_producto, contacto,\
+    registro_usuario, cambiarpassword, perfil,tienda, ProductoViewSet, CategoriaViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register('productos',ProductoViewSet)
+router.register('categoria',CategoriaViewSet)
 
 urlpatterns = [
     path('', home , name="home"),
@@ -21,4 +19,6 @@ urlpatterns = [
     path('registro/', registro_usuario, name="registro_usuario"),
     path('tienda/', tienda, name="tienda"),
     path('api/',include(router.urls)),
+    path('cambiarpassword/',cambiarpassword,name="cambiarpassword"),
+    path('perfil/', perfil, name="perfil" ),
 ]

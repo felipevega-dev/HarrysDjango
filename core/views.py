@@ -1,17 +1,39 @@
-from time import time
 from django.shortcuts import redirect,render , get_object_or_404
 from core.carrito import Carrito
 from core.forms import CustomUserForm, ProductosForm , ContactoForm
 from django.contrib import messages
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
-from core.models import Producto
+from core.models import Categoria, Producto
 from django.core.paginator import Paginator
 from django.http import Http404
 
 #REST
 from rest_framework import viewsets
-from .serializers import ProductosSerializer
+from .serializers import CategoriaSerializer, ProductosSerializer
+
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductosSerializer
+
+    def get_queryset(self):
+        productos = Producto.objects.all()
+
+        nombre = self.request.GET.get('nombre')
+        descripcion = self.request.GET.get('descripcion')
+
+        if nombre:
+            productos = productos.filter(nombre__contains=nombre)
+
+        if descripcion:
+            productos = productos.filter(descripcion__contains=descripcion)
+
+        return productos   
 
 # Create your views here.
 def home(request):
@@ -22,6 +44,10 @@ def base(request):
 
 def galeria(request):
     return render(request,'harrys/galeria.html')
+
+@login_required
+def perfil(request):
+    return render(request,'registration/perfil.html')
 
 def contacto(request):
     data = {
@@ -38,6 +64,7 @@ def contacto(request):
             
     return render(request,'harrys/contacto.html', data)
 
+@permission_required('core.view_producto')
 def listado_productos(request):
     productos = Producto.objects.all()
     page = request.GET.get('page', 1)
@@ -72,7 +99,7 @@ def nuevo_producto(request):
         
     return render(request,'harrys/nuevo_producto.html',data)
 
-@login_required
+@permission_required('core.change_producto')
 def modificar_producto(request,id):
     producto = get_object_or_404(Producto,id=id)
     data = {
@@ -89,6 +116,7 @@ def modificar_producto(request,id):
           
     return render(request,'harrys/modificar_productos.html', data)
 
+@permission_required('core.delete_producto')
 def eliminar_producto(request,id):
     producto = get_object_or_404(Producto,id=id)
     producto.delete()
@@ -146,7 +174,18 @@ def limpiar_carrito(request):
     return redirect("tienda")  
 
 
-class ProductoViewSet(viewsets.ModelViewSet):
-    queryset = Producto.objects.all()
-    serializer_class = ProductosSerializer
+@login_required()
+def cambiarpassword(request):
+    form=PasswordChangeForm(request.POST or None)
+    contexto={
+        "form":form
+    }
+    
+    if request.method=="POST":
+        form=PasswordChangeForm(request.user,data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to="home")
+    
+    return render(request,"app/cambiarpassword.html",contexto)
 

@@ -41,9 +41,6 @@
     filter: opacity(0.9);
 }
 
-.imgzoom {
-    transition: 0.4s transform;
-}
 
 /*card*/
 
@@ -60,17 +57,16 @@
 
 /*NAV*/
 
-.navtitle{
-    border-radius: 15px;
-    overflow: hidden;
+.navtitulos{
     transition: all ease-out 0.2s;
-    color:#1d1d1c;
+    color: black;
 }
-.navtitle:hover{
+
+.navtitulos:hover{
     transform: scale(1.10);
     transition: 1s filter;
     transition-delay: 1s;
-    color: #f9e537;
+    color: linear-gradient(to right, #ffa751, #ff5959);
 }
 
 .navlogin{
@@ -85,8 +81,8 @@
     color: #f93d37;  
 }
 
+/*
 
-/* api */
 .app{
     height: 900px;
     width: 100%;
@@ -122,7 +118,7 @@
     background-size: contain;
     background-position: center center;
 }
-
+*/
 /*USER*/
 
 .usuarioname{

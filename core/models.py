@@ -12,7 +12,7 @@ class Categoria(models.Model):
         return self.nombre
     
 class Producto(models.Model):
-    nombre = models.CharField(max_length=200)
+    nombre = models.CharField(max_length=50)
     valor = models.IntegerField()
     anio = models.IntegerField()
     categoria = models.ForeignKey(Categoria, on_delete=CASCADE)
