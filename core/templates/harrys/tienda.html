@@ -3,46 +3,34 @@
 {% load static %}
 
 {% block contenido %}
-<div class="container col-12 col-8 col-4">
-    <br>
-    <div class="row">
-        <div class="col-12 align-self-centerr"><h1 class="display-1">TIENDA HARRYS</h1></div>
-    </div>
-    <div class="row">
-        <div class="col-8">
-            <div class="row" style="padding: 2px 0;">
-                <div class="col-12">
-                    <div class="row">
-                        {% for producto in productos %}
-                        <div class="col-4">
-                            <div class="card " style="height:23rem; width:13rem; margin: 2px 0px;">
-                                <div class="card-body ">
-                                    {% if producto.imagen %}
-                                    <img src="{{ producto.imagen.url }}" width="160px" height="200px">
-                                    
-                                    {%else%}
-                                    <p class="fw-bold">Producto sin Fotografía</p>
-                                    {% endif %}
-                                        <div>
-                                            <h5 class="card-tittle ">{{producto.nombre}}</h5>
-                                            <p class="card-text fw-bold">Categoria: {{producto.categoria}}</p> 
-                                            <p class="card-text">${{producto.valor}}</p>
-                                        </div>    
-                                    <a href="{%url 'Add' producto.id %}" class="btn btn-warning text-danger fw-bold">Agregar al carrito</a>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
+<main>
+    <div class="container-md" >
+        <div class="row pt-5">
+            <h3 class="text-center display-2">TIENDA HARRY'S</h3>
+        </div>  
+        <div class="row">
+        {% for producto in productos %}
+        <div class="col-sm-3">
+            <div class="card w-100 shadow-sm">
+                {% if producto.imagen %}
+                    <img src="{{ producto.imagen.url }}">
+                {%else%}
+                    <p class="fw-bold">Producto sin Fotografía</p>
+                {% endif %}
+                <div class="card-body text-center">
+                    <h5 class="card-tittle ">{{producto.nombre}}</h5>
+                    <p class="card-text fw-bold">Categoria: {{producto.categoria}}</h4> 
+                    <h5 class="card-text">${{producto.valor}}</h4>    
+                    <a href="{%url 'Add' producto.id %}" class="btn btn-warning text-danger fw-bold">Agregar al carrito</a>
                 </div>
-            
             </div>
         </div>
-        <div class="col-4">
-            {% include "harrys/carrito.html" %}
+        {% endfor %}
         </div>
     </div>
-    <br>
-</div>
+</main>
 
+<div class="col-4">
+    {% include "harrys/carrito.html" %}
+</div>
 {% endblock %}

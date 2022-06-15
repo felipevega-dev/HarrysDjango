@@ -36,6 +36,7 @@ class ProductoViewSet(viewsets.ModelViewSet):
         return productos   
 
 # Create your views here.
+
 def home(request):
     return render(request,'harrys/index.html')
 
@@ -124,6 +125,7 @@ def eliminar_producto(request,id):
     return redirect(to="listado_productos")
     
     # from django.shortcuts import render, redirect    
+
 
 def registro_usuario(request):
     data = {

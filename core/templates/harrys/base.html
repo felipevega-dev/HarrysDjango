@@ -48,13 +48,16 @@
             @{{ user.username}}
           </a>
           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'perfil' %}">Mi Perfil</a></li>
             {% if perms.core.view_producto %}
             <li><a class="dropdown-item" href="{% url 'listado_productos' %}">Lista Productos</a></li>
             {% endif %}
             {% if perms.core.add_producto %}
             <li><a class="dropdown-item" href="{% url 'nuevo_producto' %}">Nuevo Producto</a></li>
             {% endif %}
-            <li><a class="dropdown-item" href="{% url 'perfil' %}">Mi Perfil</a></li>
+            {% if perms.core.view_producto %}
+            <li><a class="dropdown-item" href="http://127.0.0.1:8000/api/">API REST</a></li>
+            {% endif %}
             <li><a class="dropdown-item" href="{% url 'logout'%}">Salir</a>
           </ul>
         </li>
