@@ -41,24 +41,24 @@
  
         {% if user.is_authenticated %}
         <li class="nav-item dropdown btn fw-bold" >
-          <a class="nav-link dropdown-toggle text-uppercase text-danger" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-uppercase text-danger zoomxd" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             @{{ user.username}}
           </a>
           <ul class="dropdown-menu">
             {% if user.is_superuser %}
-            <li><a class="dropdown-item" href="http://127.0.0.1:8000/admin/">Panel de Admin</a></li>
+            <li><a class="dropdown-item navtitadm" href="http://127.0.0.1:8000/admin/">Panel de Admin</a></li>
             {% endif %}
-            <li><a class="dropdown-item" href="{% url 'perfil' %}">Mi Perfil</a></li>
+            <li><a class="dropdown-item navtitadm" href="{% url 'perfil' %}">Mi Perfil</a></li>
             {% if perms.core.view_producto %}
-            <li><a class="dropdown-item" href="{% url 'listado_productos' %}">Lista Productos</a></li>
+            <li><a class="dropdown-item navtitadm" href="{% url 'listado_productos' %}">Lista Productos</a></li>
             {% endif %}
             {% if perms.core.add_producto %}
-            <li><a class="dropdown-item" href="{% url 'nuevo_producto' %}">Nuevo Producto</a></li>
+            <li><a class="dropdown-item navtitadm" href="{% url 'nuevo_producto' %}">Nuevo Producto</a></li>
             {% endif %}
             {% if perms.core.view_producto %}
-            <li><a class="dropdown-item" href="http://127.0.0.1:8000/api/">API REST</a></li>
+            <li><a class="dropdown-item navtitadm" href="http://127.0.0.1:8000/api/">API REST</a></li>
             {% endif %}
-            <li><a class="dropdown-item" href="{% url 'logout'%}">Salir</a>
+            <li><a class="dropdown-item navtitadm" href="{% url 'logout'%}">Salir</a>
           </ul>
         </li>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNavegacion">

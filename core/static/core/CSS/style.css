@@ -58,16 +58,46 @@
 /*NAV*/
 
 .navtitulos{
-    transition: all ease-out 0.2s;
-    color: black;
+    transition: all ease-out 0.3s;
+    color:  #ff2018;
+    font-size: 20px;
 }
 
 .navtitulos:hover{
     transform: scale(1.10);
     transition: 1s filter;
     transition-delay: 1s;
-    color: #f9e537;
-    border:rgb(226, 7, 7);
+    -webkit-text-fill-color: #f9e537;
+    -webkit-text-stroke: 1px #eb0a0a;
+    text-shadow: 0 0 30px #eb0a0a;
+}
+
+.tiendatit{
+    transition: 1s filter;
+    transition-delay: 1s;
+    -webkit-text-fill-color: #f9e537;
+    -webkit-text-stroke: 1px #eb0a0a;
+    font-size: 20px;
+}
+
+.tiendatit:hover{
+    transform: scale(1.10); 
+    text-shadow: 0 0 30px #eb0a0a;
+}
+
+.navtitadm:hover{
+    transition: 1s filter;
+    transition-delay: 1s;
+    -webkit-text-fill-color: #f9e537;
+    -webkit-text-stroke: 1px #eb0a0a;
+    text-shadow: 0 0 30px #eb0a0a;
+}
+
+.zoomxd{
+    font-size: 19px;
+}
+.zoomxd:hover{
+    transform: scale(1.10); 
 }
 
 .navlogin{
