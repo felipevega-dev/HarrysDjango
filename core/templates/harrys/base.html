@@ -48,6 +48,9 @@
             @{{ user.username}}
           </a>
           <ul class="dropdown-menu">
+            {% if user.is_superuser %}
+            <li><a class="dropdown-item" href="http://127.0.0.1:8000/admin/">Panel de Admin</a></li>
+            {% endif %}
             <li><a class="dropdown-item" href="{% url 'perfil' %}">Mi Perfil</a></li>
             {% if perms.core.view_producto %}
             <li><a class="dropdown-item" href="{% url 'listado_productos' %}">Lista Productos</a></li>

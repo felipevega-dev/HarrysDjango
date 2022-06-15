@@ -59,7 +59,8 @@ def contacto(request):
         formulario = ContactoForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "contacto guardado"
+            messages.success(request, "Tu Mensaje se ha enviado Correctamente")
+            return redirect(to="contacto")
         else:
             data["form"] = formulario
             
@@ -187,7 +188,8 @@ def cambiarpassword(request):
         form=PasswordChangeForm(request.user,data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect(to="home")
+            messages.success(request, "Tu Contraseña ha sido Modificada Correctamente")
+            return redirect(to="perfil")
     
     return render(request,"app/cambiarpassword.html",contexto)
 
