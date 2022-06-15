@@ -43,9 +43,6 @@ def home(request):
 def base(request):
     return render(request,'harrys/base.html')
 
-def galeria(request):
-    return render(request,'harrys/galeria.html')
-
 @login_required
 def perfil(request):
     return render(request,'registration/perfil.html')

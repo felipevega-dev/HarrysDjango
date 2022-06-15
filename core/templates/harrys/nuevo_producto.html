@@ -2,27 +2,29 @@
 
 {% block contenido %}
 {% load crispy_forms_tags %}
-<br>
-<div class="row">
-    <div class="col-12 col-md-6 offset-md-3 ">
-        <div class="card">
-            <div class="card-body">
-                <h2 class="text-center display-2">NUEVO PRODUCTO</h2>
-                <form action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <table>
-                        {{ form | crispy }}
-                    </table>
-                    &nbsp;
-                        <div class="d-flex justify-content-center">
-                            <input type="reset" value="Resetear Campos" class="btn btn-danger">
-                            &nbsp;
-                            <button type="submit" id="btnEnviar"class="btn btn-success">Agregar Producto</button>
-                        </div>
-                </form>   
+<div class="container-fluid bg-danger">
+    <br>
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3 ">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center display-2">NUEVO PRODUCTO</h2>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <table>
+                            {{ form | crispy }}
+                        </table>
+                        &nbsp;
+                            <div class="d-flex justify-content-center">
+                                <input type="reset" value="Resetear Campos" class="btn btn-warning text-danger fw-bold">
+                                &nbsp;
+                                <button type="submit" id="btnEnviar"class="btn btn-success fw-bold">Agregar Producto</button>
+                            </div>
+                    </form>   
+                </div>
             </div>
+            <br>
         </div>
-        <br>
     </div>
 </div>
 

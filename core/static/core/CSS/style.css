@@ -66,14 +66,15 @@
     transform: scale(1.10);
     transition: 1s filter;
     transition-delay: 1s;
-    color: rgb(226, 7, 7);
+    color: #f9e537;
+    border:rgb(226, 7, 7);
 }
 
 .navlogin{
     overflow: hidden;
     transition: all ease-out 0.2s;
     transition: 0.5s filter;
-    background: #f9e537;; 
+    background: #f9e537; 
 }
 
 .navlogin:hover{

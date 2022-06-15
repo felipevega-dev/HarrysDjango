@@ -19,23 +19,20 @@
 </head>
 <body class="bg-light">
     <!--Navbar-->
-    <nav class="navbar navbar-expand-xl navbar-light bg-light border-3 border-bottom border-warning">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-3 border-bottom border-warning">
       <div class="container-fluid">  
         <div>
           <a href="{% url 'home' %}" class="navbar-brand">
-              <img src="{% static 'core/'%}IMAGENES/logonew.png" alt="Harrys" width="400px" height="115px">
+              <img src="{% static 'core/'%}IMAGENES/logone.png" alt="Harrys" width="400px" height="115px">
           </a>
         </div> 
         <!--Items-->
         <div id="MenuNavegacion" class="collapse navbar-collapse">
-          <ul class="m-1 ms-auto fw-bold" >
+          <ul class="m-1 fw-bold" >
             <li><a href="{% url 'home' %}" class="navtitulos nav-link text-center">Inicio</a></li>
           </ul>
           <ul class="m-1 fw-bold" >
             <li><a href="{% url 'tienda' %}" class="nav-link navtitulos text-center">Tienda</a></li>
-          </ul>
-          <ul class="m-1 fw-bold ">
-            <li><a href="{% url 'galeria' %}" class="nav-link navtitulos text-center">Galeria</a></li>
           </ul>
           <ul  class="m-1 fw-bold ">
             <li><a href="{% url 'contacto' %}" class="nav-link navtitulos text-center">Contactanos</a></li>

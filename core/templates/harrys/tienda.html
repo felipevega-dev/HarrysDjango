@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block contenido %}
-<main>
+<main class="sec-portfolio-js">
     <div class="container-md" >
         <div class="row pt-5">
             <h3 class="text-center display-2">TIENDA HARRY'S</h3>
@@ -11,9 +11,11 @@
         <div class="row">
         {% for producto in productos %}
         <div class="col-sm-3">
-            <div class="card w-100 shadow-sm">
+            <div class="card w-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#modal-portfolio">
                 {% if producto.imagen %}
-                    <img src="{{ producto.imagen.url }}">
+                    <a href="" class="col-12 mb-3 portfolio-item" data-bs-toggle="modal" data-bs-target="#modal-portfolio">
+                        <img src="{{ producto.imagen.url }}" class="w-100 img-btn-modal-js">
+                    </a>
                 {%else%}
                     <p class="fw-bold">Producto sin Fotografía</p>
                 {% endif %}
@@ -36,4 +38,9 @@
         </div>
     </div>
     <br>
+    <div class="col-9 modal fade" id="modal-portfolio">
+        <div class="modal-dialog position-relative modal-dialog-centered">
+            <img src="" alt="" class="w-100 img-modal-js"> 
+        </div>
+    </div>
 {% endblock %}

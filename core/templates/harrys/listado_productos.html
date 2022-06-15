@@ -25,49 +25,51 @@
 {% endblock %}
 
 {% block contenido %}
-<br>
-<div class="card container m-6 ">
 
-<div class="card-body col-12 align-self-center"><h2 class="display-2 text-center">PRODUCTOS</h2></div>
-  
-    <table class="table table-striped table-hover table-responsive-sm table-bordered">
-        <tr class="text-center">
-            <th class="text-center">ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Valor</th>
-            <th>Categoria</th>
-            <th>Stock</th>
-            <th>Accion</th>
-        </tr>
+<div class="container-fluid bg-danger">
+    <br>
+    <div class="card container m-6 ">
+        <div class="card-body col-12"><h2 class="display-2 text-center">PRODUCTOS</h2></div>
         
-        {% for p in entity%}
-        <div class="container">
-            <tr class="text-center">
-                <td>{{ p.id }}</td>
-                <td>{{ p.nombre | title }}</td>
-                <td>{{ p.descripcion | title}}</td>
-                <td>${{p.valor }}</td>
-                <td>{{ p.categoria | title}}</td>
-                <td>{{ p.stock }}</td>
-                <td>
-                    <div class="text-center">
-                    {% if perms.core.change_producto %}
-                    <a href ="{% url 'modificar_producto' p.id %}" class="btn btn-info btn-sm text-white">Modificar</a>
-                    {% endif %}
-                    {% if perms.core.delete_producto %}    
-                    <a href ="#" onclick="eliminarProducto({{ p.id }})" class="btn btn-danger btn-sm">Eliminar</a>
-                    {% endif %}
-                    </div>
-                </td>
-            </tr>  
-        </div>
-        {%endfor%}  
-    </table>
-    <hr>
-    <div>
-        {% include 'app/paginator.html' %}
+            <table class="table table-striped table-hover table-responsive-sm table-bordered">
+                <tr class="text-center">
+                    <th class="text-center">ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Valor</th>
+                    <th>Categoria</th>
+                    <th>Stock</th>
+                    <th>Accion</th>
+                </tr>
+                
+                {% for p in entity%}
+                <div class="container">
+                    <tr class="text-center">
+                        <td>{{ p.id }}</td>
+                        <td>{{ p.nombre | title }}</td>
+                        <td>{{ p.descripcion | title}}</td>
+                        <td>${{p.valor }}</td>
+                        <td>{{ p.categoria | title}}</td>
+                        <td>{{ p.stock }}</td>
+                        <td>
+                            <div class="text-center">
+                            {% if perms.core.change_producto %}
+                            <a href ="{% url 'modificar_producto' p.id %}" class="btn btn-info btn-sm text-white">Modificar</a>
+                            {% endif %}
+                            {% if perms.core.delete_producto %}    
+                            <a href ="#" onclick="eliminarProducto({{ p.id }})" class="btn btn-danger btn-sm">Eliminar</a>
+                            {% endif %}
+                            </div>
+                        </td>
+                    </tr>  
+                </div>
+                {%endfor%}  
+            </table>
+            <hr>
+            <div>
+                {% include 'app/paginator.html' %}
+            </div>
     </div>
-
+    <br>
 </div>
 {% endblock %}
