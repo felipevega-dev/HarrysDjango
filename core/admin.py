@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Producto, Categoria , Contacto
 from .forms import ProductosForm
+from pedidos.models import LineaPedido, Pedido
 
 # Register your models here.
 

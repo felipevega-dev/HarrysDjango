@@ -174,7 +174,7 @@ def restar_producto(request, producto_id):
 def limpiar_carrito(request):
     carrito = Carrito(request)
     carrito.limpiar()
-    return redirect("tienda")  
+    return redirect("carrito")  
 
 
 @login_required()

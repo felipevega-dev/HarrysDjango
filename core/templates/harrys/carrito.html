@@ -47,10 +47,14 @@
         <hr>
         </div>
         <div class="row text-center">
-            <div class="col-6"><a href="{% url 'CLS' %}" class="btn btn-danger text-white">Limpiar</a>
+            <div class="col-5"><a href="{% url 'CLS' %}" class="btn btn-danger text-white">Limpiar</a>
             </div>
-            <div class="col-6"><a href="#" class="btn btn-success text-white">Comprar</a></div>
-            
+            {% if user.is_authenticated and request.session.carrito.items %}
+            <div class="col-6"><a href="#" class="btn btn-success text-white">Realizar Pedido</a></div>
+            {% else %}
+            <div class="col-7"><h3 href="#" class="btn btn-warning text-danger fw-bold">Debes estar LOGEADO y TENER ARTICULOS EN EL CARRO para realizar un Pedido!</h3></div>
+            {% endif %}
+
     </div>
     <br>
   </div>

@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
     'colorfield',
+    'pedidos',
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
