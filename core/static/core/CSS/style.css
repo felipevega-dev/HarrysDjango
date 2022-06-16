@@ -60,7 +60,7 @@
 .navtitulos{
     transition: all ease-out 0.3s;
     color:  #ff2018;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .navtitulos:hover{

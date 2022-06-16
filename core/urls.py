@@ -1,5 +1,5 @@
 from django.urls import path, include
-from core.views import  base, eliminar_producto, home, listado_productos, modificar_producto, nuevo_producto, contacto,\
+from core.views import  base, carrito, eliminar_producto, home, listado_productos, modificar_producto, nuevo_producto, contacto,\
     registro_usuario, cambiarpassword, perfil,tienda, ProductoViewSet, CategoriaViewSet
 from rest_framework import routers
 
@@ -20,4 +20,5 @@ urlpatterns = [
     path('api/', include(router.urls), name="api"),
     path('cambiarpassword/',cambiarpassword,name="cambiarpassword"),
     path('perfil/', perfil, name="perfil" ),
+    path('carrito/', carrito, name="carrito"),
 ]

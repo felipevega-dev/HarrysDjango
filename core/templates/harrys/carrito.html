@@ -1,46 +1,57 @@
-<div class="alert alert-warning border-3" role="alert">
-    <table class="table warning">
-      <thead>
-        <tr>
-          <th scope="row" colspan="3" class="text-center">CARRITO HARRYS</th>
-        </tr>
-        <tr>
-          <th scope="col">NOMBRE</th>
-          <th scope="col">PRECIO</th>
-          <th scope="col">CANTIDAD</th>
-        </tr>
-      </thead>
-      <tbody>
-      {% if request.session.carrito.items %}
-      {% for key, value in request.session.carrito.items %}
-        <tr>
-          <th scope="col">{{value.nombre}}</td>
-          <td class="float-left">${{value.acumulado}}</td>
-          <td>
-            <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark bg-danger text-white ">-</a>
-            <a href="{% url 'Add' value.producto_id %}" class="badge btn btn-dark bg-success text-white ">+</a>
-          </td>
-        </tr>
-      {% endfor %}
-      {% else %}
-      <tr>
-          <td colspan="3">
-              <br>
-              <div class="alert alert-danger text-center"> Sin Productos </div>
-          </td>
-      </tr>
-      {% endif %}
-        <tr>
-          <th scope="row">Total:</th>
-          <th colspan="2">${{total_carrito}}</th>
-        </tr>
-      </tbody>
-    </table>
-    <hr>
-    </div>
-    <div class="row text-center">
-        <div class="col-6"><a href="{% url 'CLS' %}" class="btn btn-danger text-white">Limpiar</a><br>↑
-            <div class="text-danger">Presionar antes de agregar productos por primera vez!</div>
+{% extends 'harrys/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<div class="container">
+  <br>
+  <div class="col-12 align-content-center">
+    <div class="alert alert-warning border-3" role="alert">
+        <table class="table warning">
+          <thead>
+            <tr>
+              <th scope="row" colspan="3" class="text-center">CARRITO HARRYS</th>
+            </tr>
+            <tr>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">PRECIO</th>
+              <th scope="col">CANTIDAD</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% if request.session.carrito.items %}
+          {% for key, value in request.session.carrito.items %}
+            <tr>
+              <th scope="col">{{value.nombre}}</td>
+              <td class="float-left">${{value.acumulado}}</td>
+              <td>
+                <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark bg-danger text-white ">-</a>
+                <a href="{% url 'Add' value.producto_id %}" class="badge btn btn-dark bg-success text-white ">+</a>
+              </td>
+            </tr>
+          {% endfor %}
+          {% else %}
+          <tr>
+              <td colspan="3">
+                  <br>
+                  <div class="alert alert-danger text-center"> Sin Productos </div>
+              </td>
+          </tr>
+          {% endif %}
+            <tr>
+              <th scope="row">Total:</th>
+              <th colspan="2">${{total_carrito}}</th>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
         </div>
-        <div class="col-6"><a href="#" class="btn btn-success text-white">Comprar</a></div>
+        <div class="row text-center">
+            <div class="col-6"><a href="{% url 'CLS' %}" class="btn btn-danger text-white">Limpiar</a><br>↑
+                <div class="text-danger">Presionar antes de agregar productos por primera vez!</div>
+            </div>
+            <div class="col-6"><a href="#" class="btn btn-success text-white">Comprar</a></div>
     </div>
+  </div>
+</div>
+{% endblock %}

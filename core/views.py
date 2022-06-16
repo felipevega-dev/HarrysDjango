@@ -37,6 +37,9 @@ class ProductoViewSet(viewsets.ModelViewSet):
 
 # Create your views here.
 
+def carrito(request):
+    return render(request,'harrys/carrito.html')
+
 def home(request):
     return render(request,'harrys/index.html')
 
@@ -154,19 +157,19 @@ def agregar_producto(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     carrito.agregar(producto)
-    return redirect("tienda") 
+    return redirect("carrito") 
 
 def eliminar_producto_car(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id) 
     carrito.eliminar(producto)
-    return redirect("tienda")  
+    return redirect("carrito")  
 
 def restar_producto(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id) 
     carrito.restar(producto)
-    return redirect("tienda") 
+    return redirect("carrito") 
 
 def limpiar_carrito(request):
     carrito = Carrito(request)

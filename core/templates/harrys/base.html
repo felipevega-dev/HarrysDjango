@@ -31,11 +31,14 @@
           <ul class="m-1 fw-bold" >
             <li><a href="{% url 'home' %}" class="navtitulos nav-link text-center">Inicio</a></li>
           </ul>
+          <ul  class="m-1 fw-bold ">
+            <li><a href="{% url 'contacto' %}" class="nav-link navtitulos text-center">Contactanos</a></li>
+          </ul>
           <ul class="m-1 fw-bold" >
             <li><a href="{% url 'tienda' %}" class="nav-link navtitulos text-center">Tienda</a></li>
           </ul>
           <ul  class="m-1 fw-bold ">
-            <li><a href="{% url 'contacto' %}" class="nav-link navtitulos text-center">Contactanos</a></li>
+            <li><a href="{% url 'carrito' %}" class="nav-link navtitulos text-center"><img src="{% static 'core/'%}IMAGENES/Icons/carrito.png"><img></a></li>
           </ul>
         </div> 
  
@@ -66,11 +69,11 @@
         </button>
         {% else %}  
         <div id="MenuNavegacion" class="collapse navbar-collapse text-end">
-          <ul class="btn btn-warning btn-sm ms-auto m-1 fw-bold">
-           <a href="{%url 'login' %}" class="nav-link navtitle text-center text-danger">Login</a>
+          <ul class="ms-auto m-1 fw-bold">
+            <li><a href="{%url 'login' %}" class="nav-link navtitulo text-center text-danger">Login</a></li>
           </ul>
-          <ul class="btn btn-warning btn-sm m-3 fw-bold">
-            <a href="{%url 'registro_usuario' %}" class="nav-link navtitle text-center text-danger">Registrarse</a>
+          <ul class=" m-1 fw-bold">
+            <li><a href="{%url 'registro_usuario' %}" class="nav-link navtitulo text-center text-danger">Registro</a></li>
           </ul>
         </div>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNavegacion">
