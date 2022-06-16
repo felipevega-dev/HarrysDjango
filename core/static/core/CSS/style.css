@@ -60,7 +60,7 @@
 .navtitulos{
     transition: all ease-out 0.3s;
     color:  #ff2018;
-    font-size: 18px;
+    font-size: 16.5px;
 }
 
 .navtitulos:hover{
@@ -110,6 +110,10 @@
 .navlogin:hover{
     transform: scale(1.10);
     color: #f93d37;  
+}
+
+.logohov:hover{
+    text-shadow: 0 0 30px #eb0a0a;
 }
 
 

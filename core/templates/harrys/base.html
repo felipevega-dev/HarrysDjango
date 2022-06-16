@@ -23,7 +23,7 @@
       <div class="container-fluid">  
         <div>
           <a href="{% url 'home' %}" class="navbar-brand">
-              <img src="{% static 'core/'%}IMAGENES/logone.png" alt="Harrys" width="400px" height="115px">
+              <img src="{% static 'core/'%}IMAGENES/logone.png"alt="Harrys" width="400px" height="115px">
           </a>
         </div> 
         <!--Items-->
@@ -38,13 +38,13 @@
             <li><a href="{% url 'tienda' %}" class="nav-link navtitulos text-center">Tienda</a></li>
           </ul>
           <ul  class="m-1 fw-bold ">
-            <li><a href="{% url 'carrito' %}" class="nav-link navtitulos text-center"><img src="{% static 'core/'%}IMAGENES/Icons/carrito.png"><img></a></li>
+            <li><a href="{% url 'carrito' %}" class="nav-link navtitulos text-center"><img src="{% static 'core/'%}IMAGENES/Icons/carrito.png" class="logohov"><img></a></li>
           </ul>
         </div> 
  
         {% if user.is_authenticated %}
         <li class="nav-item dropdown btn fw-bold" >
-          <a class="nav-link dropdown-toggle text-uppercase text-danger zoomxd" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-uppercase text-danger zoomxd logohov" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             @{{ user.username}}
           </a>
           <ul class="dropdown-menu">
@@ -70,10 +70,10 @@
         {% else %}  
         <div id="MenuNavegacion" class="collapse navbar-collapse text-end">
           <ul class="ms-auto m-1 fw-bold">
-            <li><a href="{%url 'login' %}" class="nav-link navtitulo text-center text-danger">Login</a></li>
+            <a href="{%url 'login' %}" class="nav-link navtitulos text-center text-danger">Login</a>
           </ul>
-          <ul class=" m-1 fw-bold">
-            <li><a href="{%url 'registro_usuario' %}" class="nav-link navtitulo text-center text-danger">Registro</a></li>
+          <ul class="m-1 fw-bold">
+            <a href="{%url 'registro_usuario' %}" class="nav-link navtitulos text-center text-danger">Registro</a>
           </ul>
         </div>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNavegacion">
