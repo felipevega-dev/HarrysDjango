@@ -40,6 +40,11 @@ class ProductoViewSet(viewsets.ModelViewSet):
 def carrito(request):
     return render(request,'harrys/carrito.html')
 
+@login_required
+def exito(request):
+    messages.success(request, "Pedido Realizado Correctamente")
+    return render(request,'harrys/compraexitosa.html')
+
 def home(request):
     return render(request,'harrys/index.html')
 

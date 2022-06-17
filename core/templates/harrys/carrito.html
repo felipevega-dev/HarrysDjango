@@ -2,6 +2,30 @@
 
 {% load static %}
 
+{% block js %}
+
+<script>
+    function realizarPedido(){
+        Swal.fire({
+            "title":"¿Estás seguro de que quieres realizar el pedido?",
+            "text": "El sistema procesará el pedido de manera automatica",
+            "icon": "question",
+            "showCancelButton": true,
+            "cancelButtonText":"No, Cancelar",
+            "confirmButtonText": "Sí, Realizar Pedido",
+            "reverseButtons": true,
+            "confirmButtonColor": "green"
+        })
+        .then(function(result){
+            if (result.isConfirmed) {
+                window.location.href = "/compraexitosa/"
+            }
+        })
+    }
+</script>
+
+{% endblock %}
+
 {% block contenido %}
 <div class="container">
   <br>
@@ -50,7 +74,7 @@
             <div class="col-5"><a href="{% url 'CLS' %}" class="btn btn-danger text-white">Limpiar</a>
             </div>
             {% if user.is_authenticated and request.session.carrito.items %}
-            <div class="col-6"><a href="#" class="btn btn-success text-white">Realizar Pedido</a></div>
+            <div class="col-6"><a href="#" onclick="realizarPedido()" class="btn btn-success text-white">Realizar Pedido</a></div>
             {% else %}
             <div class="col-7"><h3 href="#" class="btn btn-warning text-danger fw-bold">Debes estar LOGEADO y TENER ARTICULOS EN EL CARRO para realizar un Pedido!</h3></div>
             {% endif %}

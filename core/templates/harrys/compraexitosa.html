@@ -1,0 +1,52 @@
+{% extends 'harrys/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<div class="container-fluid bg-danger">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3 ">
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center text-success">PEDIDO PROCESADO</h2>
+                    <hr>
+                    <div class="col-12 text-center" style="text-align:center;">
+                        <table class="table-bordered table-responsive-sm table-responsive-lg " style="margin: 0 auto;">
+                            <thead>
+                                <tr>
+                                <th scope="col">NOMBRE</th>
+                                <th scope="col">PRECIO</th>
+                                <th scope="col">CANTIDAD</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% if request.session.carrito.items %}
+                            {% for key, value in request.session.carrito.items %}
+                                <tr>
+                                <th scope="col">{{value.nombre}}</td>
+                                <td class="float-left">${{value.acumulado}}</td>
+                                <th class="col">{{value.cantidad}}</th>
+                                </tr>
+                            {% endfor %}
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <h5 class="fw-bold text-success text-center">TOTAL PEDIDO: ${{total_carrito}}</h5>
+                    <p class="text-center">Tus productos han sido procesados correctamente, recibiras un correo electronico con las instrucciones para el despacho 
+                        en el email registrado en tu perfil: <h6 class="fw-bold text-center">{{ user.email}}</h6></p>
+                    {% if user.is_authenticated and request.session.carrito.items %}
+                    <div class="col-12 text-center">
+                        <a href="{% url 'tienda' %}" class="btn btn-success text-white text-center">Seguir Comprando</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
